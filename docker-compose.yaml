@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+
+    app:
+        build: .
+        volumes:
+            - .:/var/www
+            - ./.docker/php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+        networks:
+            - app-network
+        depends_on:
+            - db
+
+    nginx:
+        build: .docker/nginx
+        restart: always
+        tty: true
+        ports:
+            - "8000:80"
+        volumes:
+            - .:/var/www
+        networks:
+            - app-network
+        depends_on:
+            - app
+
+    db:
+        build: ./.docker/mysql
+        restart: always
+        tty: true
+        ports:
+            - "33006:3306"
+        volumes:
+            - ./.docker/dbdata:/var/lib/mysql
+            - ./.docker/mysql:/docker-entrypoint-initdb.d
+        environment:
+            - MYSQL_DATABASE=o_patusco
+            - MYSQL_ROOT_PASSWORD=root
+        networks:
+            - app-network
+
+networks:
+    app-network:
+        driver: bridge
