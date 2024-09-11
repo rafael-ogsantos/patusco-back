@@ -31,4 +31,4 @@ Voce terá acesso a uma tela de login, onde poderá se autenticar com as seguint
 
 O projeto foi desenvolvido com o intuito de demonstrar meu conhecimento em relação ao framework laravel e ao framework vue. O projeto não está completo, faltando algumas funcionalidades como a de cancelar uma consulta, editar uma consulta, entre outras. O projeto foi desenvolvido em 3 dias, e o tive tempo hábil para finalizar todas as funcionalidades.
 
-Mas uma das funcionalidades que gostaria de destacar é a de notificação de email por meio de schedule, onde o sistema envia um email para o dono do animal, 1 hora antes da consulta.
+Mas uma das funcionalidades que gostaria de ter realizado é a de notificação de email por meio de schedule, onde o sistema envia um email para o dono do animal, 1 hora antes da consulta.
